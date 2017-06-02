@@ -1,0 +1,29 @@
+//
+//  SplashViewController.swift
+//  MVPComputerConfigurator
+//
+//  Created by Hayden Young on 15/05/2017.
+//  Copyright © 2017 Nimbletank. All rights reserved.
+//
+
+import UIKit
+
+protocol SplashUIProtocol {
+	func setupUIOn(view: UIView)
+}
+
+class SplashViewController: UIViewController {
+	
+	var splashUI: SplashUIProtocol?
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Do any additional setup after loading the view.
+		
+		view.backgroundColor = .yellow
+		
+		splashUI?.setupUIOn(view: view)
+	}
+	
+}
