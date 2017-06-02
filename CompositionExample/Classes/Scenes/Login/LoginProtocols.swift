@@ -14,6 +14,8 @@ import UIKit
 
 protocol LoginRouterProtocol: class {
 	
+	var loginDidSucceed: (() -> ())? { get set }
+	
 	func finishLoginRoute(animated: Bool, completion:(() -> Swift.Void)?)
 	
 	func presentForgotPassword(animated: Bool, completion:(() -> Swift.Void)?)

@@ -10,8 +10,10 @@ import UIKit
 
 class LoginRouter: LoginRouterProtocol {
 
+	var loginDidSucceed: (() -> ())?
+	
 	func finishLoginRoute(animated: Bool, completion:(() -> ())?) {
-		
+		loginDidSucceed?()
 	}
 	
 	func presentForgotPassword(animated: Bool, completion:(() -> ())?) {

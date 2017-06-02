@@ -8,7 +8,27 @@
 
 import UIKit
 
-class HomeUI: HomeUIProtocol {
+class HomeUI: NSObject, HomeUIProtocol {
 
-	@IBOutlet weak var button: UIButton!
+	@IBOutlet weak var messageLabel: UILabel?
+	
+	@IBOutlet weak var feelsGreatButton: UIButton? {
+		didSet {
+			feelsGreatButton?.backgroundColor = .darkGray
+			feelsGreatButton?.setTitleColor(.white, for: .normal)
+			feelsGreatButton?.layer.cornerRadius = 5
+		}
+	}
+	@IBOutlet weak var scaredButton: UIButton? {
+		didSet {
+			scaredButton?.backgroundColor = .red
+			scaredButton?.setTitleColor(.black, for: .normal)
+			scaredButton?.layer.cornerRadius = 5
+		}
+	}
+	
+
 }
+
+
+

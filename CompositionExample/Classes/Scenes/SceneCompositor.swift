@@ -69,4 +69,13 @@ struct SceneCompositor {
 		
 		return loginVC
 	}
+	
+	static func homeViewController() -> HomeViewController {
+		let homeVC = UIStoryboard(name: "Home", bundle: nil).instantiateInitialViewController() as! HomeViewController
+		
+		homeVC.homeUIActions?.homeUI = homeVC.homeUI
+		
+		return homeVC ;
+	}
+	
 }

@@ -15,6 +15,7 @@ class RootRouter: RootRouterProtocol {
 	
 	var splashVC: SplashViewController!
 	var loginVC: LoginViewController!
+	var homeVC: HomeViewController!
 	
 	func presentSplashScene(animated: Bool, completion: (() -> Void)? = nil) {
 		//--- get splash from factory and add it
@@ -32,6 +33,11 @@ class RootRouter: RootRouterProtocol {
 		view?.insertSubview(loginVC.view, belowSubview: splashVC.view)
 		viewController?.addChildViewController(loginVC)
 		
+		//--- login completion
+		loginVC.router?.loginDidSucceed = { [unowned self] in
+			self.transitionFromLoginToHome(animated: true, completion: nil)
+		}
+		
 		//--- animate splash off
 		let duration = animated ? 0.25 : 0.0
 		UIView.animate(withDuration: duration, animations: { [unowned self] in
@@ -43,7 +49,21 @@ class RootRouter: RootRouterProtocol {
 	}
 	
 	func transitionFromLoginToHome(animated: Bool, completion: (() -> Void)?) {
+		//--- get and add home
+		homeVC = SceneCompositor.homeViewController()
+		let view = viewController?.view
+		homeVC.view.frame = (view?.bounds)!
+		view?.insertSubview(homeVC.view, belowSubview: loginVC.view)
+		viewController?.addChildViewController(homeVC)
 		
+		//--- animate login off
+		let duration = animated ? 0.25 : 0.0
+		UIView.animate(withDuration: duration, animations: { [unowned self] in
+			self.loginVC.view.alpha = 0.0
+		}) { [unowned self] (finished: Bool) in
+			self.loginVC.view.removeFromSuperview()
+			self.loginVC = nil
+		}
 	}
 }
 

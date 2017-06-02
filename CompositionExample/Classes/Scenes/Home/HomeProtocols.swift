@@ -8,10 +8,17 @@
 
 import UIKit
 
-protocol HomeUIProtocol: class {
-	var button: UIButton! { get set }
+@objc protocol HomeUIProtocol: class {
+	var messageLabel: UILabel? { get set }
+	var feelsGreatButton: UIButton? { get set }
+	var scaredButton: UIButton? { get set }
 }
 
-protocol HomeActionsProtocol: class {
+@objc protocol HomeUIActionsProtocol: class {
+	
+	weak var homeUI: HomeUIProtocol? { get set }
+	
+	func feelsGreatAction(_ sender: Any)
+	func scaredAction(_ sender: Any)
 	
 }

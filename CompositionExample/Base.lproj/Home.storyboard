@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Bq-MM-ac6">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="mJg-af-mBG">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="4Bq-MM-ac6" customClass="HomeViewController" customModule="CompositionExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rHG-AV-269"/>
+                        <viewControllerLayoutGuide type="bottom" id="HfR-8e-oAX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QJ1-hj-Vbh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are home. How does it feel?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzT-5b-rYD">
+                                <rect key="frame" x="65" y="28" width="245" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhm-Eq-AaG">
+                                <rect key="frame" x="147" y="57" width="81" height="30"/>
+                                <state key="normal" title="Feels great!"/>
+                                <connections>
+                                    <action selector="feelsGreatAction:" destination="Gus-le-M42" eventType="touchUpInside" id="RuO-G9-2M1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDc-Lr-Agh">
+                                <rect key="frame" x="59" y="95" width="256" height="30"/>
+                                <state key="normal" title="I'm scared. Take me somewhere else!"/>
+                                <connections>
+                                    <action selector="scaredAction:" destination="Gus-le-M42" eventType="touchUpInside" id="6Gd-X9-8Z4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xhm-Eq-AaG" firstAttribute="top" secondItem="HzT-5b-rYD" secondAttribute="bottom" constant="8" id="WMN-Rz-EkF"/>
+                            <constraint firstItem="NDc-Lr-Agh" firstAttribute="centerX" secondItem="QJ1-hj-Vbh" secondAttribute="centerX" id="XfV-Lz-jgx"/>
+                            <constraint firstItem="Xhm-Eq-AaG" firstAttribute="centerX" secondItem="QJ1-hj-Vbh" secondAttribute="centerX" id="gDA-Jo-6br"/>
+                            <constraint firstItem="HzT-5b-rYD" firstAttribute="centerX" secondItem="QJ1-hj-Vbh" secondAttribute="centerX" id="tRg-lW-uj1"/>
+                            <constraint firstItem="HzT-5b-rYD" firstAttribute="top" secondItem="rHG-AV-269" secondAttribute="bottom" constant="8" id="xz2-4J-h1Q"/>
+                            <constraint firstItem="NDc-Lr-Agh" firstAttribute="top" secondItem="Xhm-Eq-AaG" secondAttribute="bottom" constant="8" id="yWm-xV-CyD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="homeUI" destination="w0p-Cv-7ym" id="GR7-th-ida"/>
+                        <outlet property="homeUIActions" destination="Gus-le-M42" id="U3N-RI-xxP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fuE-eB-ndd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="w0p-Cv-7ym" customClass="HomeUI" customModule="CompositionExample" customModuleProvider="target">
+                    <connections>
+                        <outlet property="feelsGreatButton" destination="Xhm-Eq-AaG" id="UWG-yO-gQF"/>
+                        <outlet property="messageLabel" destination="HzT-5b-rYD" id="0NM-P9-Bf2"/>
+                        <outlet property="scaredButton" destination="NDc-Lr-Agh" id="42P-TI-O6l"/>
+                    </connections>
+                </customObject>
+                <customObject id="Gus-le-M42" customClass="HomeUIActions" customModule="CompositionExample" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="1264.8" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
