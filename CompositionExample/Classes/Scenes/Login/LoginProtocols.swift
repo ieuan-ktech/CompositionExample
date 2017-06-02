@@ -3,7 +3,7 @@
 //  MVPComputerConfigurator
 //
 //  Created by Hayden Young on 31/05/2017.
-//  Copyright © 2017 Nimbletank. All rights reserved.
+//  Copyright © 2017 Chirone. All rights reserved.
 //
 
 import UIKit
@@ -70,7 +70,6 @@ protocol LoginViewModelProtocol: class {
 // --------------------------------------------------------------------------------------
 protocol LoginAPIProtocol {
 	var accessToken: String? { get set }
-	var refreshToken: String? { get set }
 	
 	func getAuthTokenWith(username: String, password: String, completion: @escaping (_ request: URLRequest?, _ result: Any?, _ error: Error?) -> Void)
 }

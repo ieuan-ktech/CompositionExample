@@ -3,7 +3,7 @@
 //  MVPComputerConfigurator
 //
 //  Created by Hayden Young on 25/05/2017.
-//  Copyright © 2017 Nimbletank. All rights reserved.
+//  Copyright © 2017 Chirone. All rights reserved.
 //
 
 import Foundation
@@ -11,12 +11,11 @@ import Alamofire
 
 class APIManager {
 	var accessToken: String?
-	var refreshToken: String?
 	
-//	public static let sharedInstance = APIManager()
-//	private init() {
-//		
-//	}
+	public static let sharedInstance = APIManager()
+	private init() {
+		
+	}
 }
 
 extension APIManager: LoginAPIProtocol {

@@ -38,6 +38,7 @@
 		67E812921EE166F400CE132C /* UIButton+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E812791EE166F400CE132C /* UIButton+Factory.swift */; };
 		67E812931EE166F400CE132C /* UILabel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8127A1EE166F400CE132C /* UILabel+Factory.swift */; };
 		67E812951EE1681300CE132C /* CompLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E812941EE1681300CE132C /* CompLoginTests.swift */; };
+		67E812991EE1778400CE132C /* MockAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E812981EE1778400CE132C /* MockAPIManager.swift */; };
 		E969146B95EB8A91E81C643C /* Pods_CompositionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4598617DD6D7FDE154210C1D /* Pods_CompositionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		67E812791EE166F400CE132C /* UIButton+Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Factory.swift"; sourceTree = "<group>"; };
 		67E8127A1EE166F400CE132C /* UILabel+Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Factory.swift"; sourceTree = "<group>"; };
 		67E812941EE1681300CE132C /* CompLoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompLoginTests.swift; sourceTree = "<group>"; };
+		67E812981EE1778400CE132C /* MockAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			children = (
 				67E8125C1EE166F400CE132C /* APIRouter.swift */,
 				67E8125B1EE166F400CE132C /* APIManager.swift */,
+				67E812981EE1778400CE132C /* MockAPIManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				67E8127B1EE166F400CE132C /* APIManager.swift in Sources */,
 				67E8128A1EE166F400CE132C /* RootProtocols.swift in Sources */,
 				67E8128B1EE166F400CE132C /* RootRouter.swift in Sources */,
+				67E812991EE1778400CE132C /* MockAPIManager.swift in Sources */,
 				67E812861EE166F400CE132C /* LoginUI.swift in Sources */,
 				67E8127C1EE166F400CE132C /* APIRouter.swift in Sources */,
 				67E8128F1EE166F400CE132C /* SplashViewController.swift in Sources */,

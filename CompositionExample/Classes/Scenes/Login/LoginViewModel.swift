@@ -3,7 +3,7 @@
 //  MVPComputerConfigurator
 //
 //  Created by Hayden Young on 18/05/2017.
-//  Copyright © 2017 Nimbletank. All rights reserved.
+//  Copyright © 2017 Chirone. All rights reserved.
 //
 
 import UIKit
@@ -36,15 +36,13 @@ class LoginViewModel: LoginViewModelProtocol {
 			}
 			
 			let responseJSON = result as! [String: AnyObject]
-			guard
-				let refreshToken = responseJSON["refresh_token"] as? String,
-				let accessToken = responseJSON["access_token"] as? String else {
-					completion( LoginError.noAccessToken )
-					return;
+			guard let accessToken = responseJSON["access_token"] as? String else {
+				completion( LoginError.noAccessToken )
+				return;
 			}
 			//--- set the tokens
 			loginAPI.accessToken = accessToken
-			loginAPI.refreshToken = refreshToken
+			
 			completion(nil)
 		})
 	}

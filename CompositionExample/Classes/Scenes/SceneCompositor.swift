@@ -3,7 +3,7 @@
 //  MVPComputerConfigurator
 //
 //  Created by Hayden Young on 15/05/2017.
-//  Copyright © 2017 Nimbletank. All rights reserved.
+//  Copyright © 2017 Chirone. All rights reserved.
 //
 //
 //
@@ -47,7 +47,7 @@ struct SceneCompositor {
 		let loginUIActions = LoginUIActions()
 		let loginViewModel = LoginViewModel()
 		let loginRouter = LoginRouter()
-		let apiManager = APIManager()//.sharedInstance
+		let apiManager = APIManager.sharedInstance
 		let loginVC = LoginViewController()
 		
 		//--- COMPOSITION
