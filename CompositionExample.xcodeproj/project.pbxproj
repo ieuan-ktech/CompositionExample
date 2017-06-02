@@ -192,10 +192,10 @@
 		67E812591EE166F400CE132C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				67E812771EE166F400CE132C /* UICategories */,
-				67E8125A1EE166F400CE132C /* API */,
 				67E8125D1EE166F400CE132C /* AppDelegate.swift */,
 				67E8125F1EE166F400CE132C /* NetworkRequestProtocol.swift */,
+				67E812771EE166F400CE132C /* UICategories */,
+				67E8125A1EE166F400CE132C /* API */,
 				67E8125E1EE166F400CE132C /* Model */,
 				67E812601EE166F400CE132C /* Scenes */,
 			);
@@ -205,8 +205,8 @@
 		67E8125A1EE166F400CE132C /* API */ = {
 			isa = PBXGroup;
 			children = (
-				67E8125B1EE166F400CE132C /* APIManager.swift */,
 				67E8125C1EE166F400CE132C /* APIRouter.swift */,
+				67E8125B1EE166F400CE132C /* APIManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";

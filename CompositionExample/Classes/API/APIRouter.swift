@@ -11,7 +11,7 @@ import Alamofire
 
 public enum APIRouter: URLRequestConvertible {
 
-	private static let baseURLPath = "https://mobile-api-awal-gw-prod.kobaltapi.com/"
+	private static let baseURLPath = "https://www.google.com"
 	static var accessToken: String?
 	
 	// --------------------------------------------------------------------------------------
