@@ -50,7 +50,7 @@ protocol LoginUIActionsProtocol: class {
 	weak var errorPresentor: ErrorPresentable? { get set }
 	weak var loginUI: LoginUIProtocol? { get set }
 	weak var loginViewModel: LoginViewModelProtocol? { get set }
-	weak var router: LoginRouter? { get set }
+	weak var router: LoginRouterProtocol? { get set }
 	
 	func loginAction(sender: UIButton);
 	func forgotPasswordAction(sender: UIButton);
@@ -62,6 +62,9 @@ protocol LoginUIActionsProtocol: class {
 // --------------------------------------------------------------------------------------
 
 protocol LoginViewModelProtocol: class {
+	
+	var loginAPI: LoginAPIProtocol? { get set }
+	var dataManager: DataManagerProtocol? { get set }
 	
 	func loginWith(username: String, password: String, completion: @escaping (_: Error? ) -> Void)
 	

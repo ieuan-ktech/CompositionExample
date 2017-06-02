@@ -14,7 +14,7 @@ class LoginUIActions: LoginUIActionsProtocol {
 	// MARK: - Protocol Properties
 	// --------------------------------------------------------------------------------------
 	
-	weak var router: LoginRouter?
+	weak var router: LoginRouterProtocol?
 	weak var loginUI: LoginUIProtocol? {
 		didSet {
 			loginUI?.loginButtonDidChange = { [unowned self] in

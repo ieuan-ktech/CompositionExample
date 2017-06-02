@@ -10,17 +10,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 	
-	
-	
 	@IBOutlet var homeUI: HomeUIProtocol?
 	@IBOutlet var homeUIActions: HomeUIActionsProtocol?
 	
-	override func awakeFromNib() {
-		print("\(homeUI)")
-	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		// Do any additional setup after loading the view.
 		
 	}
@@ -29,6 +23,5 @@ class HomeViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
 	
 }

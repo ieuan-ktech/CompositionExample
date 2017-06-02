@@ -25,17 +25,23 @@ import UIKit
 struct SceneCompositor {
 	
 	static func configure(rootViewController: RootViewController) {
+		//--- COMPONENTS
 		let router = RootRouter()
+		
+		//--- COMPOSITION
+		//--- router
 		router.viewController = rootViewController
+
+		//--- view controller
 		rootViewController.router = router
 	}
 	
 	static func splashViewController() -> SplashViewController {
 		//--- COMPONENTS
 		let splashUI = SplashUI()
+		let splashVC = SplashViewController()
 		
 		//--- COMPOSITION
-		let splashVC = SplashViewController()
 		splashVC.splashUI = splashUI
 		
 		return splashVC
@@ -43,12 +49,13 @@ struct SceneCompositor {
 	
 	static func loginViewController() -> LoginViewController {
 		//--- COMPONENTS
-		let loginUI = LoginUI()
-		let loginUIActions = LoginUIActions()
-		let loginViewModel = LoginViewModel()
-		let loginRouter = LoginRouter()
-		let apiManager = MockAPIManager.sharedInstance
-		let loginVC = LoginViewController()
+		let loginUI: LoginUIProtocol 								= LoginUI()
+		let loginUIActions: LoginUIActionsProtocol 	= LoginUIActions()
+		let loginViewModel: LoginViewModelProtocol 	= LoginViewModel()
+		let loginRouter: LoginRouterProtocol 				= LoginRouter()
+		let loginVC: LoginViewController 						= LoginViewController()
+		let apiManager: LoginAPIProtocol 						= MockAPIManager.sharedInstance
+		let dataManager: DataManagerProtocol 				= DataManager.sharedInstance
 		
 		//--- COMPOSITION
 		//--- ui actions
@@ -59,6 +66,7 @@ struct SceneCompositor {
 		
 		//--- view-model
 		loginViewModel.loginAPI = apiManager
+		loginViewModel.dataManager = dataManager
 		
 		//--- view controller
 		loginVC.loginUI = loginUI
@@ -66,13 +74,14 @@ struct SceneCompositor {
 		loginVC.viewModel = loginViewModel
 		loginVC.router = loginRouter
 		
-		
 		return loginVC
 	}
 	
 	static func homeViewController() -> HomeViewController {
+		//--- COMPONENTS
 		let homeVC = UIStoryboard(name: "Home", bundle: nil).instantiateInitialViewController() as! HomeViewController
 		
+		//--- COMPOSITION
 		homeVC.homeUIActions?.homeUI = homeVC.homeUI
 		
 		return homeVC ;

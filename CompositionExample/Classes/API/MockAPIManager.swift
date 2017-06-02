@@ -23,7 +23,12 @@ extension MockAPIManager: LoginAPIProtocol {
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 			if username == "user" && password == "password" {
-				let result = ["access_token": "0987654321"]
+				
+				let userInfo: [String: Any] = ["first_name": "John",
+				                               "last_name": "Snow"]
+				
+				let result: [String: Any] = ["access_token": "0987654321",
+				                             "user": userInfo]
 				completion(nil, result, nil)
 			} else {
 				let error = NSError(domain: "test", code: 403, userInfo: nil)

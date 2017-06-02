@@ -13,6 +13,7 @@ import UIKit
 
 class LoginViewModel: LoginViewModelProtocol {
 	var loginAPI: LoginAPIProtocol?
+	var dataManager: DataManagerProtocol?
 	
 	func loginWith(username: String, password: String, completion: @escaping (_: Error? ) -> Void) {
 		
@@ -36,12 +37,18 @@ class LoginViewModel: LoginViewModelProtocol {
 			}
 			
 			let responseJSON = result as! [String: AnyObject]
-			guard let accessToken = responseJSON["access_token"] as? String else {
-				completion( LoginError.noAccessToken )
-				return;
+			guard let accessToken = responseJSON["access_token"] as? String,
+				let userInfo = responseJSON["user"] as? Dictionary<String, Any> else {
+					completion( LoginError.noAccessToken )
+					return;
 			}
 			//--- set the tokens
 			loginAPI.accessToken = accessToken
+			
+			//--- set the user
+			let dataManager = DataManager.sharedInstance
+			let user = dataManager.createUser(fromInfo: userInfo)
+			dataManager.currentUser = user
 			
 			completion(nil)
 		})
