@@ -274,9 +274,9 @@
 		67E812731EE166F400CE132C /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				67E8129C1EE1809C00CE132C /* SplashProtocols.swift */,
 				67E812741EE166F400CE132C /* SplashUI.swift */,
 				67E812751EE166F400CE132C /* SplashViewController.swift */,
-				67E8129C1EE1809C00CE132C /* SplashProtocols.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
