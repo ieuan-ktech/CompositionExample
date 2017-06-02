@@ -39,6 +39,7 @@
 		67E812931EE166F400CE132C /* UILabel+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8127A1EE166F400CE132C /* UILabel+Factory.swift */; };
 		67E812951EE1681300CE132C /* CompLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E812941EE1681300CE132C /* CompLoginTests.swift */; };
 		67E812991EE1778400CE132C /* MockAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E812981EE1778400CE132C /* MockAPIManager.swift */; };
+		67E8129D1EE1809C00CE132C /* SplashProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8129C1EE1809C00CE132C /* SplashProtocols.swift */; };
 		E969146B95EB8A91E81C643C /* Pods_CompositionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4598617DD6D7FDE154210C1D /* Pods_CompositionExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		67E8127A1EE166F400CE132C /* UILabel+Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Factory.swift"; sourceTree = "<group>"; };
 		67E812941EE1681300CE132C /* CompLoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompLoginTests.swift; sourceTree = "<group>"; };
 		67E812981EE1778400CE132C /* MockAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAPIManager.swift; sourceTree = "<group>"; };
+		67E8129C1EE1809C00CE132C /* SplashProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 			children = (
 				67E812741EE166F400CE132C /* SplashUI.swift */,
 				67E812751EE166F400CE132C /* SplashViewController.swift */,
+				67E8129C1EE1809C00CE132C /* SplashProtocols.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				67E812821EE166F400CE132C /* HomeUI.swift in Sources */,
 				67E8128C1EE166F400CE132C /* RootViewController.swift in Sources */,
 				67E812831EE166F400CE132C /* HomeViewController.swift in Sources */,
+				67E8129D1EE1809C00CE132C /* SplashProtocols.swift in Sources */,
 				67E812871EE166F400CE132C /* LoginUIActions.swift in Sources */,
 				67E812891EE166F400CE132C /* LoginViewModel.swift in Sources */,
 				67E8128E1EE166F400CE132C /* SplashUI.swift in Sources */,

@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol SplashUIProtocol {
-	func setupUIOn(view: UIView)
-}
 
 class SplashViewController: UIViewController {
 	
