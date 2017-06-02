@@ -15,7 +15,7 @@ class LoginUI: LoginUIProtocol {
 		let textField = UITextField()
 		textField.font = UIFont.systemFont(ofSize: 14)
 		textField.placeholder = "Username"
-		textField.text = "apptest2@kobaltmusic.com"
+		textField.text = "user"
 		return textField
 		}() {
 		didSet {
@@ -29,7 +29,7 @@ class LoginUI: LoginUIProtocol {
 		let textField = UITextField()
 		textField.font = UIFont.systemFont(ofSize: 14)
 		textField.placeholder = "Password"
-		textField.text = "Rec0rd1ng"
+		textField.text = "password"
 		return textField
 		}() {
 		didSet {

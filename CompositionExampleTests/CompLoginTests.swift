@@ -27,7 +27,7 @@ class MVPLoginTests: XCTestCase {
     
 	func testLoginEmptyFieldFailure() {
 		let viewModel = LoginViewModel()
-		let loginAPI = APIManager()//.sharedInstance
+		let loginAPI = MockAPIManager.sharedInstance
 		viewModel.loginAPI = loginAPI
 		
 		var expectEmpty: XCTestExpectation? = expectation(description: "testing for empty fields")
@@ -72,11 +72,11 @@ class MVPLoginTests: XCTestCase {
 	
 	func testLoginCorrectCredentials() {
 		let viewModel = LoginViewModel()
-		let loginAPI = APIManager()//.sharedInstance
+		let loginAPI = MockAPIManager.sharedInstance
 		viewModel.loginAPI = loginAPI
 		let expect = expectation(description: "Testing for correct credentials")
 		
-		viewModel.loginWith(username: "apptest2@kobaltmusic.com", password: "Rec0rd1ng", completion: { error in
+		viewModel.loginWith(username: "user", password: "password", completion: { error in
 			guard error == nil else {
 				XCTFail("Login didn't succeed")
 				expect.fulfill()

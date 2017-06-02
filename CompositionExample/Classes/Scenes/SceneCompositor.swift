@@ -47,7 +47,7 @@ struct SceneCompositor {
 		let loginUIActions = LoginUIActions()
 		let loginViewModel = LoginViewModel()
 		let loginRouter = LoginRouter()
-		let apiManager = APIManager.sharedInstance
+		let apiManager = MockAPIManager.sharedInstance
 		let loginVC = LoginViewController()
 		
 		//--- COMPOSITION
