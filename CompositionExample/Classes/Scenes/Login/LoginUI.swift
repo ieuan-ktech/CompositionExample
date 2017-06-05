@@ -8,8 +8,14 @@
 
 import UIKit
 
+private struct LoginUIConstants {
+	static let forgotPasswordBottomConstraintConstant: CGFloat = 20.0
+}
+
 class LoginUI: LoginUIProtocol {
-	
+	// --------------------------------------------------------------------------------------
+	// MARK: - Properties
+	// --------------------------------------------------------------------------------------
 	var usernameTextFieldDidChange: (() -> ())?
 	var usernameTextField: UITextField = {
 		let textField = UITextField()
@@ -30,6 +36,7 @@ class LoginUI: LoginUIProtocol {
 		textField.font = UIFont.systemFont(ofSize: 14)
 		textField.placeholder = "Password"
 		textField.text = "password"
+		textField.isSecureTextEntry = true
 		return textField
 		}() {
 		didSet {
@@ -57,8 +64,20 @@ class LoginUI: LoginUIProtocol {
 		}
 	}
 	
+	private weak var view: UIView?
+	private var forgotPasswordBottomConstraint: NSLayoutConstraint?
+	
+	// --------------------------------------------------------------------------------------
+	// MARK: - Setup
+	// --------------------------------------------------------------------------------------
+	
+	deinit {
+		NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+	}
 	
 	func setupUIOn(view: UIView) {
+		self.view = view
 		
 		view.backgroundColor = .brown
 		
@@ -66,7 +85,10 @@ class LoginUI: LoginUIProtocol {
 		
 		addViewsOn(view: view)
 		
-		setupLayoutOn(view: view)		
+		setupLayoutOn(view: view)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillChange(notification:)), name: .UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillChange(notification:)), name: .UIKeyboardWillHide, object: nil)
 	}
 	
 	private func triggerUIDidChange() {
@@ -83,6 +105,10 @@ class LoginUI: LoginUIProtocol {
 		view.addSubview(forgotPasswordButton)
 	}
 	
+	// --------------------------------------------------------------------------------------
+	// MARK: - Layout
+	// --------------------------------------------------------------------------------------
+	
 	private func setupLayoutOn(view: UIView) {
 		usernameTextField.translatesAutoresizingMaskIntoConstraints = false
 		passwordTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -95,13 +121,39 @@ class LoginUI: LoginUIProtocol {
 		                               "forgotPasswordButton": forgotPasswordButton]
 		var constraints: [NSLayoutConstraint]?
 		
+		//--- forgot password bottom = view bottom
+		forgotPasswordBottomConstraint = view.bottomAnchor.activateConstraint(equalTo: forgotPasswordButton.bottomAnchor, constant: LoginUIConstants.forgotPasswordBottomConstraintConstant)
+		
 		//--- vertical layout
-		constraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-(20)-[usernameTextField]-[passwordTextField]-[loginButton]-[forgotPasswordButton]", options: [.alignAllLeading, .alignAllTrailing], metrics: nil, views: views)
+		constraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[usernameTextField]-[passwordTextField]-[loginButton]-[forgotPasswordButton]", options: [.alignAllLeading, .alignAllTrailing], metrics: nil, views: views)
 		view.addConstraints(constraints!)
 		
 		//--- horizontal layout
 		constraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(20)-[usernameTextField]-(20)-|", options: .init(rawValue: 0), metrics: nil, views: views)
 		view.addConstraints(constraints!)
+	}
+	
+	// --------------------------------------------------------------------------------------
+	// MARK: - Keyboard Notification
+	// --------------------------------------------------------------------------------------
+	
+	@objc private func handleKeyboardWillChange(notification: Notification) {
+		guard let userInfo = notification.userInfo,
+			let forgotPasswordBottomConstraint = forgotPasswordBottomConstraint else {
+				return
+		}
+		
+		guard let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
+			let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
+		 	let view = view else {
+				return
+		}
+		
+		forgotPasswordBottomConstraint.constant = view.frame.height - endFrame.origin.y + LoginUIConstants.forgotPasswordBottomConstraintConstant
+		
+		UIView.animate(withDuration: duration) { [unowned self] in
+			self.view?.layoutIfNeeded()
+		}
 	}
 	
 }
