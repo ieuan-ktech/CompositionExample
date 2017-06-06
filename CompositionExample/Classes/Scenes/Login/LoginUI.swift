@@ -139,11 +139,8 @@ class LoginUI: LoginUIProtocol {
 	
 	@objc private func handleKeyboardWillChange(notification: Notification) {
 		guard let userInfo = notification.userInfo,
-			let forgotPasswordBottomConstraint = forgotPasswordBottomConstraint else {
-				return
-		}
-		
-		guard let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
+			let forgotPasswordBottomConstraint = forgotPasswordBottomConstraint,
+			let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
 			let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
 		 	let view = view else {
 				return

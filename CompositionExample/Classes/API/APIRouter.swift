@@ -30,6 +30,7 @@ public enum APIRouter: URLRequestConvertible {
 	// MARK: - HTTP Types
 	// --------------------------------------------------------------------------------------
 	private var httpMethod: HTTPMethod {
+		
 		switch self {
 		case .passwordAuth:
 			return .post
