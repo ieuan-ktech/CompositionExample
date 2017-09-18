@@ -323,8 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				67ED964E1F70132C00EC0E36 /* NSLayoutAnchor+Active.swift */,
-				67ED964F1F70132C00EC0E36 /* UIButton+Setup.swift */,
 				67ED96501F70132C00EC0E36 /* UIControl+Setup.swift */,
+				67ED964F1F70132C00EC0E36 /* UIButton+Setup.swift */,
 				67ED96511F70132C00EC0E36 /* UILabel+Setup.swift */,
 				67ED96521F70132C00EC0E36 /* UITextField+Setup.swift */,
 			);

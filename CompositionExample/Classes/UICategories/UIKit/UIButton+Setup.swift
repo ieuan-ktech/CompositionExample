@@ -7,6 +7,9 @@
 //
 //
 //
+//	Example Usage:
+//	Button property
+//
 //	var loginButton: UIButton = {
 //		let configuration = UIButtonConfiguration(titlesForStates: [UIButtonTitleState(title: "Push Me")],
 //												  font: UIFont.systemFont(ofSize: 14),
