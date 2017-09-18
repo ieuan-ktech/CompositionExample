@@ -55,7 +55,7 @@ public enum APIRouter: URLRequestConvertible {
 		switch self {
 		case .passwordAuth(let username, let password):
 			return ["username": username,
-							"password": password]
+					"password": password]
 		}
 		
 	}

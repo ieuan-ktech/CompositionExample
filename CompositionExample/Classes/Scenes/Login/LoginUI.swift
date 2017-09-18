@@ -18,10 +18,10 @@ class LoginUI: LoginUIProtocol {
 	// --------------------------------------------------------------------------------------
 	var usernameTextFieldDidChange: (() -> ())?
 	var usernameTextField: UITextField = {
-		let textField = UITextField()
-		textField.font = UIFont.systemFont(ofSize: 14)
-		textField.placeholder = "Username"
-		textField.text = "user"
+		let configurationType = UITextFieldConfiguration.Types.login(text: "user",
+		                                                             placeholder: "Username",
+		                                                             font: UIFont.systemFont(ofSize: 14))
+		let textField = UITextField(configurationType: configurationType)
 		return textField
 		}() {
 		didSet {
@@ -32,11 +32,10 @@ class LoginUI: LoginUIProtocol {
 	
 	var passwordTextFieldDidChange: (() -> ())?
 	var passwordTextField: UITextField = {
-		let textField = UITextField()
-		textField.font = UIFont.systemFont(ofSize: 14)
-		textField.placeholder = "Password"
-		textField.text = "password"
-		textField.isSecureTextEntry = true
+		let configurationType = UITextFieldConfiguration.Types.password(text: "password",
+		                                                                placeholder: "Password",
+		                                                                font: UIFont.systemFont(ofSize: 14))
+		let textField = UITextField(configurationType: configurationType)
 		return textField
 		}() {
 		didSet {
@@ -46,7 +45,10 @@ class LoginUI: LoginUIProtocol {
 	
 	var loginButtonDidChange: (() -> ())?
 	var loginButton: UIButton = {
-		let button = UIButton(stateConfigurations: [UIButtonStateConfiguration(title: "Login")], actionConfigurations: nil, font: UIFont.systemFont(ofSize: 14), textColor: .black, multilined: false)
+		let configuration = UIButtonConfiguration(titlesForStates: [UIButtonTitleState(title: "Login")],
+		                                          font: UIFont.systemFont(ofSize: 14),
+		                                          titleColorsForStates: [UIButtonColorState(color: .black)])
+		let button = UIButton(configuration: configuration)
 		return button
 		}() {
 		didSet {
@@ -56,7 +58,10 @@ class LoginUI: LoginUIProtocol {
 	
 	var forgotButtonDidChange: (() -> ())?
 	var forgotPasswordButton: UIButton = {
-		let button = UIButton(stateConfigurations: [UIButtonStateConfiguration(title: "Forgot Password")], actionConfigurations: nil, font: UIFont.systemFont(ofSize: 14), textColor: .black, multilined: false)
+		let configuration = UIButtonConfiguration(titlesForStates: [UIButtonTitleState(title: "Forgot Password")],
+		                                          font: UIFont.systemFont(ofSize: 14),
+		                                          titleColorsForStates: [UIButtonColorState(color: .black)])
+		let button = UIButton(configuration: configuration)
 		return button
 		}() {
 		didSet {

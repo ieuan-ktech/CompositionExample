@@ -10,7 +10,7 @@ import UIKit
 
 class SplashUI: SplashUIProtocol {
 
-	var label: UILabel = UILabel(text: "SPLASH!", font: UIFont.systemFont(ofSize: 24))
+	var label: UILabel = UILabel(configuration: UILabelConfiguration(text: "SPLASH!", font: UIFont.systemFont(ofSize: 24)))
 	
 	func setupUIOn(view: UIView) {
 		view.addSubview(label)
