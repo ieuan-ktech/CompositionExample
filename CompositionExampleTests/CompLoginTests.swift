@@ -76,7 +76,7 @@ class MVPLoginTests: XCTestCase {
 		viewModel.loginAPI = loginAPI
 		let expect = expectation(description: "Testing for correct credentials")
 		
-		viewModel.loginWith(username: "apptest2@kobaltmusic.com", password: "Rec0rd1ng", completion: { error in
+		viewModel.loginWith(username: "xxxxxxxxxx", password: "xxxxxxxx", completion: { error in
 			guard error == nil else {
 				XCTFail("Login didn't succeed")
 				expect.fulfill()
